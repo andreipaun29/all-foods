@@ -1,1 +1,1 @@
-# all-foods
+# Angular Frontend project
