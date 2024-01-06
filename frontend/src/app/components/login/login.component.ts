@@ -11,7 +11,7 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
   userService: UserService = new UserService();
 
@@ -20,6 +20,10 @@ export class LoginComponent {
    }
 
 
+   ngOnInit(): void {
+       // clear local storage
+        localStorage.clear();
+   }
 
 
   sendLogin() {
@@ -49,6 +53,17 @@ export class LoginComponent {
       this.userService.setCurrentUserLastName(lastName ?? null);
       this.userService.setCurrentUserEmail(email);
       this.userService.setCurrentUserPassword(password);
+
+      localStorage.setItem('userId', String(userId)); // Convert userId to string
+      localStorage.setItem('firstName', firstName ?? '');
+      localStorage.setItem('lastName', lastName ?? '');
+      localStorage.setItem('email', email);
+      localStorage.setItem('password', password);
+
+      localStorage.setItem('token', String(userId)); // Convert userId to string
+
+
+      this.router.navigate(['home']);
 
 
     } else {

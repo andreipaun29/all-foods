@@ -36,6 +36,14 @@ export class RegisterComponent {
       this.userService.setCurrentUserLastName(lastName ?? null);
       this.userService.setCurrentUserEmail(email);
       this.userService.setCurrentUserPassword(password);
+
+      localStorage.setItem('userId', String(user.id)); // Convert userId to string
+      localStorage.setItem('firstName', firstName ?? '');
+      localStorage.setItem('lastName', lastName ?? '');
+      localStorage.setItem('email', email);
+      localStorage.setItem('password', password);
+
+
     });
     alert('User added successfully!');
 
