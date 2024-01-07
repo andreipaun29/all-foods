@@ -15,22 +15,5 @@ export class AccountComponent implements OnInit {
 
   ngOnInit(): void {
 
-    //log the url
-    if (this.route.snapshot.url[1].path != localStorage.getItem('userId')) {
-      alert('You are not authorized to view this page');
-      //stay on the same page
-      window.location.href = '/account/' + localStorage.getItem('userId');
-    }
-
-
-    this.route.params.subscribe((params) => {
-      this.userId = +params['id']; // Convert the parameter to a number
-
-      // Check if the authenticated user matches the requested user ID
-      if (this.authService.getAuthenticatedUserId() !== this.userId) {
-        // Redirect to an error page or handle unauthorized access
-        // Example: this.router.navigate(['/unauthorized']);
-      }
-    });
   }
 }

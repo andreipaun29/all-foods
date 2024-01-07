@@ -1,8 +1,9 @@
 // src/app/guards/auth.guard.ts
 
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router, UrlTree } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -10,13 +11,30 @@ import { AuthService } from '../services/auth.service';
 export class AuthGuard implements CanActivate {
   constructor(private authService: AuthService, private router: Router) {}
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    if (this.authService.isAuthenticated()) {
-      return true;
-    } else {
-      // Navigate to the login page if not authenticated
-      this.router.navigate(['/login']);
-      return false;
-    }
+  canActivate(
+    next: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+    
+      // if we are on the /home page, only check if the token exists in local storage.
+      // otherwise, if we are on the /account/id page, check if the user id in the url matches the user id in local storage.
+      if (state.url === '/home') {
+        if (localStorage.getItem('token')) {
+          return true;
+        }
+        this.router.navigate(['/login']);
+        return false;
+      } else {
+        const userId = localStorage.getItem('userId');
+        if (!userId) {
+          this.router.navigate(['/login']);
+          return false;
+        }
+        if (userId === next.params['id']) {
+          return true;
+        }
+        // stay on the same page
+        window.location.href = '/account/' + localStorage.getItem('userId');
+        return false;
+      }
   }
 }

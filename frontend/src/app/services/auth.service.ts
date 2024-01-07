@@ -5,24 +5,18 @@ import { Injectable } from '@angular/core';
 })
 export class AuthService {
   isAuthenticated(): boolean {
+    // check localStorage for token and make sure it's the same as the user's id
     const token = localStorage.getItem('token');
-    // Check if the token exists
-    if (token) {
-      // You can add more logic here to validate the token if necessary
+    const userId = localStorage.getItem('userId');
+    if (token === userId) {
       return true;
     }
     return false;
   }
 
 
-  getAuthenticatedUserId(): number {
-    const token = localStorage.getItem('token');
-    // Check if the token exists
-    if (token) {
-      // You can add more logic here to validate the token if necessary
-      return 1;
-    }
-    return -1;
+  getCurrentUserId(): string | null {
+    return localStorage.getItem('userId');
   }
-  // You can add other methods related to authentication, e.g., getUserInfo, logout, etc.
+
 }
