@@ -8,6 +8,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { AccountComponent } from './components/account/account.component';
 import { AuthGuard } from './guards/auth.guard';
+import { ItemComponent } from './components/item/item.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { AuthGuard } from './guards/auth.guard';
     RegisterComponent,
     HomeComponent,
     AccountComponent,
+    ItemComponent,
   ],
   imports: [
     BrowserModule,

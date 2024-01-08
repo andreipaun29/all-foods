@@ -1,0 +1,11 @@
+<div class="card" style="width: 21vw; height:30vh">
+  <img class="card-img-top item-image" src="{{ item.image }}" alt="img">
+  <div class="card-body">
+    <h5 class="card-title">{{ item.name }}</h5>
+    <p class="card-text">{{ item.description }}</p>
+    <div style="display: flex; align-items:center; gap:20px">
+      <a class="btn btn-primary">Order</a>
+      <p class="card-text">Price: {{ item.price }}</p>
+    </div>
+  </div>
+</div>
