@@ -1,7 +1,19 @@
 <div id="header" style="display: flex; justify-content: space-around; align-items: center; gap: 50vw; position:fixed">
 
     <h1 id="opt">All Foods - Menu</h1>
-    <h1 id="contact">Contact</h1>
+    <div id="user" style="display: flex; align-items: center; gap: 20px;">
+        <h1 >Welcome {{currentUser}}</h1>
+        <div class="user-container" (mouseenter)="showDropdown = true" (mouseleave)="showDropdown = false">
+        <img id="user" src="../../../assets/profile.jpg" alt="user" style="width: 50px; height: 50px; border-radius: 50%;">
+        
+            <div class="dropdown" *ngIf="showDropdown">
+                <ul>
+                <li><a (click)="account()">Account</a></li>
+                <li><a (click)="logout()">Logout</a></li>
+                </ul>
+            </div>
+        </div>        
+    </div>
   
 </div>
   
@@ -48,7 +60,7 @@
         </div>
     </div>
 
-    <div id="infoContainer" style="display: flex;">
+    <div id="infoContainer" style="display: flex; align-items:center; height:7vh; width:97%; ">
         <div id="social">
             <h4>Follow us on social media</h4>
             <div id="socialIcons" style="display: flex; gap:20px;">
@@ -59,5 +71,10 @@
 
         </div>
 
+        <div id="contact">
+            <h4>Contact us</h4>
+            <p>Phone: 123456789<br>
+            Email: allfoooods@gmail.com<br>
+            Address: 1234 Food Street</p>
     </div>
 </div>

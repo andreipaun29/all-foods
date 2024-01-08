@@ -78,6 +78,8 @@ select {
 
 
 #infoContainer{
+  display: flex;
+  justify-content: space-between;
 
   position: absolute;
   bottom: -30vh;
@@ -95,9 +97,16 @@ select {
 }
 
 
+#contact h4{
+  color: green;
+  text-shadow: 0 0 1px rgba(255, 255, 255, 0.8), 0 0 1px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.8);
+}
 
 
 
+#user:hover{
+  cursor: pointer;
+}
 
 
 
@@ -105,6 +114,30 @@ select {
   color: green;
   cursor: pointer;
 }
+
+
+
+.user-container {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown {
+  position: absolute;
+  right: -25px;
+  top: 50px; /* Adjust the distance from the top */
+  background-color: #fff; /* Set the background color */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+  border-radius: 5px;
+  padding: 10px;
+  display: none;
+}
+
+.user-container:hover .dropdown {
+  display: block;
+}
+
+
 
 ::-webkit-scrollbar {
     width: 10px;

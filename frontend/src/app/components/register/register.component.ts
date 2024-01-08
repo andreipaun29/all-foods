@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/services/user.service';
@@ -8,7 +8,12 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent {
+export class RegisterComponent implements  OnInit {
+
+
+  ngOnInit(): void {
+    localStorage.clear();
+  }
 
     userService: UserService = new UserService();
 
@@ -43,10 +48,11 @@ export class RegisterComponent {
       localStorage.setItem('email', email);
       localStorage.setItem('password', password);
 
+      localStorage.setItem('token', String(user.id)); // Convert userId to string
 
+
+      this.router.navigate(['home']);
     });
-    alert('User added successfully!');
-
   }
 
 
