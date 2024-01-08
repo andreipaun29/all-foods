@@ -6,24 +6,58 @@
 </div>
   
 
-
 <div id="page">
-
-    <div id="titleContainer" style="display: flex; justify-content:top; flex-direction:column; margin-bottom:40px">
+    <div id="titleContainer" style="display: flex; justify-content: top; flex-direction: column; margin-bottom: 40px">
         <h2>
             Take a look at our menu
         </h2>
-
     </div>
+
+    <div id="align">
+
+        <div id="filterContainer">
+            <label for="meatFilter">Filter by Meat:&nbsp; </label>
+            <select id="meatFilter" [(ngModel)]="selectedMeat">
+                <option value="all">All</option>
+                <option value="chicken">Chicken</option>
+                <option value="beef">Beef</option>
+                <option value="vegetarian">Vegetarian</option>
+            </select>
+        </div>
     
+        <div id="sortContainer" style="display: flex;">
+            <p>Sort by price:    </p>
+    
+            <svg (click)="sortUp()" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-arrow-up" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5"/>
+            </svg>
+    
+            <svg (click)="sortDown()" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-arrow-down" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5V13.293l3.146-3.147a.5.5 0 1 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1"/>
+            </svg>
+                
+    
+                
+        </div>
+    </div>
+
 
     <div id="menuContainer">
-        
-        <div *ngFor="let item of items">
+        <div *ngFor="let item of filteredItems">
             <app-item [item]="item"></app-item>
         </div>
-        
-
     </div>
 
+    <div id="infoContainer" style="display: flex;">
+        <div id="social">
+            <h4>Follow us on social media</h4>
+            <div id="socialIcons" style="display: flex; gap:20px;">
+                <a style="color: aliceblue;" href="https://www.facebook.com/">Facebook<img src="../../../assets/facebook.png" alt="facebook"></a>
+                <a style="color: aliceblue;" href="https://www.instagram.com/">Instagram<img src="../../../assets/instagram.png" alt="instagram"></a>
+                <a style="color: aliceblue;" href="https://www.twitter.com/">Twitter<img src="../../../assets/twitter.png" alt="twitter"></a>
+            </div>
+
+        </div>
+
+    </div>
 </div>

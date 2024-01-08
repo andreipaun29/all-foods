@@ -9,6 +9,7 @@ import { HomeComponent } from './components/home/home.component';
 import { AccountComponent } from './components/account/account.component';
 import { AuthGuard } from './guards/auth.guard';
 import { ItemComponent } from './components/item/item.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ItemComponent } from './components/item/item.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    LoginComponent
+    LoginComponent,
+    FormsModule
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]
