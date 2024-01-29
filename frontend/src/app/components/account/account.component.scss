@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200&display=swap');
+*{
+    font-family: 'Inter', sans-serif !important;
+}
+
+
+h1{
+    margin: 0 !important;
+    transition: 0.3s !important;
+    color: black;
+}
+
+#opt:hover{
+    color: #f2f2f2 !important;
+}
+
+#contact:hover{
+    color: #f2f2f2 !important;
+    cursor: pointer;
+    background-color: rgb(72, 72, 72);
+    
+}
+
+#home{
+    font-size: 20px;
+    color: #f2f2f2 !important;
+    cursor: pointer;
+    background-color: rgb(72, 72, 72);
+    border-radius: 15px;
+}
+
+#logout{
+    font-size: 20px;
+    color: #f2f2f2 !important;
+    cursor: pointer;
+    background-color: rgb(72, 72, 72);
+    border-radius: 15px
+}
+
+
+#home:hover{
+    color: #f2f2f2 !important;
+    cursor: pointer;
+    background-color: rgb(116, 116, 116);
+}
+
+#logout:hover{
+    color: #f2f2f2 !important;
+    cursor: pointer;
+    background-color: rgb(116, 116, 116);
+}
+
+#page{
+    width: 100vw;
+    height: 96vh;
+
+    // background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('../../../assets/home_bg.png');
+    background-color: #1b1b1b;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);
+    background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+}
+
+#bothPanels{
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url('../../../assets/account_bg.jpg');
+    background-repeat: no-repeat; 
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);
+    background-size: cover; 
+    background-position: center; 
+
+    width: 80%;
+    height: 80%;
+}
+
+svg:hover{
+    cursor: pointer;
+
+}
+
+#infoPanel{
+    width: 30vw;
+    height: 70vh;
+    background: rgb(189, 189, 189);
+    border-radius: 20px;
+    //shadow
+    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
+    display: flex;
+    justify-content: center;
+
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('../../../assets/account_menu.jpg');
+    background-repeat: no-repeat; 
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);
+    background-size: cover; 
+    background-position: center; 
+    
+}
+
+ul{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    gap: 3vh;
+}
+
+li{
+    list-style-type: none;
+    font-size: 20px;
+    font-weight: bold;
+    // margin-bottom: 10px;
+    color: rgb(255, 255, 255);
+}
