@@ -39,6 +39,15 @@
 
 
                     </li>
+
+                <li> 
+                    <label for="location" *ngIf="!submitted">Enter your location:</label> &nbsp;
+                    <input *ngIf="!submitted" type="text" id="location" [(ngModel)]="location" placeholder="Enter your location" />
+                    <button (click)="submitLocation()" *ngIf="!submitted">Submit</button>
+                    <div *ngIf="submitted">
+                        <p>Location: {{ location }}</p>
+                    </div>
+                </li>
              </ul>
          </div>
     </div>

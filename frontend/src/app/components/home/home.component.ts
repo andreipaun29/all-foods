@@ -1,17 +1,34 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ItemService } from '../../services/item.service';
 import { Item } from '../../models/item';
 import { Router } from '@angular/router';
+import { ShareService } from 'src/app/services/share.service';
+import { AccountComponent } from '../account/account.component';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
     items: Item[];
-    constructor(private itemService: ItemService, private router: Router) {
+
+    location: string = '';
+
+    constructor(private itemService: ItemService, private router: Router, private shareService: ShareService,
+        private accountComponent: AccountComponent) {
         this.items = itemService.getItems();
+    }
+
+    ngOnInit(){
+        
+        this.shareService.currentData.subscribe((data) => {
+            this.location = data;
+            console.log(this.location);
+        });
+        
+
+        
     }
     
     selectedMeat: string = 'all';

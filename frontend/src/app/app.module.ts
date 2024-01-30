@@ -10,6 +10,7 @@ import { AccountComponent } from './components/account/account.component';
 import { AuthGuard } from './guards/auth.guard';
 import { ItemComponent } from './components/item/item.component';
 import { FormsModule } from '@angular/forms';
+import { ShareService } from './services/share.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { FormsModule } from '@angular/forms';
     LoginComponent,
     FormsModule
   ],
-  providers: [AuthGuard],
+  providers: [AuthGuard, ShareService, AccountComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

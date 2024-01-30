@@ -3,6 +3,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { ShareService } from 'src/app/services/share.service';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-account',
@@ -11,21 +12,30 @@ import { Router } from '@angular/router';
 })
 export class AccountComponent implements OnInit {
 
-  constructor(private router: Router) {}
-
   firstName: string = localStorage.getItem('firstName') || '';
   lastName: string = localStorage.getItem('lastName') || '';
   email: string = localStorage.getItem('email') || '';
   password: string = '';
 
-
+  location:any  = localStorage.getItem('location');
 
   picture: string = '../../assets/profile.jpg'
+  
+  constructor(private router: Router, private shareService: ShareService) {}
+
+
 
   ngOnInit(): void {
 
+    this.shareService.sendData(this.location);
+
+
     let pLength = localStorage.getItem('password')?.length;
     this.password = '*'.repeat(pLength || 0);
+
+    if(this.location){
+      this.submitted = true;
+    }
   }
 
 
@@ -50,5 +60,13 @@ export class AccountComponent implements OnInit {
       this.password = '*'.repeat(length);
     }
   }
+  submitted: boolean = false;
+
+  submitLocation() {
+    this.submitted = true;
+    localStorage.setItem('location', this.location );
+    this.shareService.sendData(this.location);
+  }
+
   
 }

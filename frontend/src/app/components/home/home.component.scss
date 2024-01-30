@@ -22,6 +22,31 @@
 }
 
 
+@keyframes pulse {
+  0% {
+    color: white;
+  }
+  // 25% {
+  //   color: #767676;
+  // }
+  50% {
+    color: #fa8686;
+  }
+  // 75%{
+  //   color: #767676;
+  // }
+  100%{
+    color: white;
+  }
+}
+
+.pulsing-element {
+  display: inline-block;
+  animation: pulse 2s infinite;
+}
+
+
+
 #header{
     background: #f2f2f2;
     width: 100%;
@@ -110,7 +135,7 @@ select {
 
 
 
-.bi:hover{
+.bi:hover:not(:first-child){
   color: green;
   cursor: pointer;
 }
@@ -131,10 +156,12 @@ select {
   border-radius: 5px;
   padding: 10px;
   display: none;
+  z-index: 999999;
 }
 
 .user-container:hover .dropdown {
   display: block;
+  z-index: 999999;
 }
 
 

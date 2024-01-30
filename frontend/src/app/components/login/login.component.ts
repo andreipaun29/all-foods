@@ -59,6 +59,7 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('lastName', lastName ?? '');
       localStorage.setItem('email', email);
       localStorage.setItem('password', password);
+      localStorage.setItem('location', '');
 
       localStorage.setItem('token', String(userId)); // Convert userId to string
 
