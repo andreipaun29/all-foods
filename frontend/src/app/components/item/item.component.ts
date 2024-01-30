@@ -13,10 +13,20 @@ export class ItemComponent {
 
     constructor(private itemService: ItemService) {}
 
+    quantity: number = 1;
 
-    // ngOnInit(): void {
-    //   console.log(this.item);
+    quantityMinus() {
+        if (this.quantity > 1) {
+            this.quantity--;
+        }
+    }
 
-    // }
+    quantityPlus() {
+        this.quantity++;
+    }
+
+    addToCart() {
+        this.itemService.addToCart(this.item, this.quantity);        
+    }
 
 }

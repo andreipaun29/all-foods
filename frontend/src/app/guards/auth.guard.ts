@@ -32,8 +32,10 @@ export class AuthGuard implements CanActivate {
         if (userId === next.params['id']) {
           return true;
         }
-        // stay on the same page
+        // stay on the same page if on account
         window.location.href = '/account/' + localStorage.getItem('userId');
+        //stay on the same page if on order
+        window.location.href = '/order/' + localStorage.getItem('userId');
         return false;
       }
   }

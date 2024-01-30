@@ -13,7 +13,7 @@ import { AccountComponent } from '../account/account.component';
 export class HomeComponent implements OnInit {
     items: Item[];
 
-    location: string = '';
+    location: string = localStorage.getItem('location') ?? '';
 
     constructor(private itemService: ItemService, private router: Router, private shareService: ShareService,
         private accountComponent: AccountComponent) {
@@ -21,11 +21,23 @@ export class HomeComponent implements OnInit {
     }
 
     ngOnInit(){
-        
+        this.location = localStorage.getItem('location') ?? '';
+
+        if(this.location == ''){
         this.shareService.currentData.subscribe((data) => {
-            this.location = data;
-            console.log(this.location);
+
+            if(data == null){
+                this.location = '';
+                this.accountComponent.ngOnInit();
+            }
+            else{
+                this.location = data;
+
+            }
         });
+        }
+
+            
         
 
         

@@ -1,7 +1,9 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable, Output } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Item } from '../models/item';
-
+import { Order } from '../models/order';
+import { OrderComponent } from '../components/order/order.component';
+import { ShareService } from './share.service';
 
 @Injectable({
   providedIn: 'root'
@@ -92,7 +94,46 @@ export class ItemService {
         },
     ];
 
+    constructor(private orderService: ShareService, private orderComponent: OrderComponent) {}
+
     getItems(): Item[] | any {
         return this.items;
+    }
+
+    addToCart(item: Item, quantity: number) {
+        let order: Order = {id: 0, items: [], total: 0, location: '', userId: 0};
+        order.id = parseInt(localStorage.getItem('userId') || '0', 10);
+        
+        for (let i=0; i<quantity; i++){
+            order.items.push(item);
+        }
+        order.total = item.price * quantity;
+        order.location = localStorage.getItem('location') || '';
+
+
+        // place the order in local storage
+        let orders: Order[] = [];
+        if (localStorage.getItem('orders')) {
+            orders = JSON.parse(localStorage.getItem('orders') || '{}');
+        }
+        orders.push(order);
+        localStorage.setItem('orders', JSON.stringify(orders));
+
+        // update the total
+        let total: number = 0;
+        for (let order of orders) {
+            total += order.total;
+        }
+
+        localStorage.setItem('total', total.toString());
+        
+
+        // make an @Output() event emitter and send the order to the order component
+        // console.log(orders);
+
+        this.orderService.sendOrder(orders);
+
+        this.orderComponent.ngOnInit();
+
     }
 }

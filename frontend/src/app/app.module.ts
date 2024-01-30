@@ -11,6 +11,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { ItemComponent } from './components/item/item.component';
 import { FormsModule } from '@angular/forms';
 import { ShareService } from './services/share.service';
+import { OrderComponent } from './components/order/order.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { ShareService } from './services/share.service';
     HomeComponent,
     AccountComponent,
     ItemComponent,
+    OrderComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,7 +28,7 @@ import { ShareService } from './services/share.service';
     LoginComponent,
     FormsModule
   ],
-  providers: [AuthGuard, ShareService, AccountComponent],
+  providers: [AuthGuard, ShareService, AccountComponent, OrderComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
