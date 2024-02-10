@@ -7,17 +7,17 @@ import { Order } from '../models/order';
 export class ShareService {
 
   private sharedData = new BehaviorSubject<string>(''); 
-  private orderSubject = new Subject<Order[]>();
+  private orderSubject = new Subject<Order>();
   currentData = this.sharedData.asObservable();
 
   constructor() {}
 
 
-  sendOrder(order: Order[]) {
+  sendOrder(order: Order) {
     this.orderSubject.next(order);
   }
 
-  getOrder(): Observable<Order[]> {
+  getOrder(): Observable<Order> {
     return this.orderSubject.asObservable();
   }
 

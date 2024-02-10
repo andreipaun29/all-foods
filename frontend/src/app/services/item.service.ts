@@ -101,6 +101,20 @@ export class ItemService {
     }
 
     addToCart(item: Item, quantity: number) {
+
+        //check to see if an order already exists in local storage. if it does , only add the item to the order
+        if (localStorage.getItem('order')) {
+            let order: Order = JSON.parse(localStorage.getItem('order') || '{}');
+            for (let i=0; i<quantity; i++){
+                order.items.push(item);
+            }
+            order.total += item.price * quantity;
+            localStorage.setItem('order', JSON.stringify(order));
+            return;
+        }
+
+
+
         let order: Order = {id: 0, items: [], total: 0, location: '', userId: 0};
         order.id = parseInt(localStorage.getItem('userId') || '0', 10);
         
@@ -111,27 +125,9 @@ export class ItemService {
         order.location = localStorage.getItem('location') || '';
 
 
-        // place the order in local storage
-        let orders: Order[] = [];
-        if (localStorage.getItem('orders')) {
-            orders = JSON.parse(localStorage.getItem('orders') || '{}');
-        }
-        orders.push(order);
-        localStorage.setItem('orders', JSON.stringify(orders));
+        localStorage.setItem('order', JSON.stringify(order));
 
-        // update the total
-        let total: number = 0;
-        for (let order of orders) {
-            total += order.total;
-        }
-
-        localStorage.setItem('total', total.toString());
-        
-
-        // make an @Output() event emitter and send the order to the order component
-        // console.log(orders);
-
-        this.orderService.sendOrder(orders);
+        this.orderService.sendOrder(order);
 
         this.orderComponent.ngOnInit();
 

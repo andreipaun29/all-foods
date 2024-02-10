@@ -1,24 +1,62 @@
 ol{
-    // border: white 1px solid;
-    // padding: 10px;
-    // box-sizing: border-box;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     gap: 3vh;
 }
 
+ol p{
+  margin: 0;
+}
+
+.hide-text {
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+  margin-left: -50px; 
+}
+
+svg:hover + .hide-text {
+  opacity: 1;
+  margin-left: 0; 
+}
+
+h3{
+  color: #7f7f7f;
+}
+
+#removeIcon{
+  color: #7f4747;
+  cursor: pointer;
+}
+
+#removeIcon:hover{
+  color: red;
+  cursor: pointer;
+
+}
 
 #infoPanel li >*{
     margin-right: 10px;
 }
 
+
+.item-list {
+  display: flex;
+  align-items: center; 
+  margin-bottom: 10px; 
+}
+
+.item-name {
+  width: 7vw; 
+}
+
+
 .dropdown {
     position: absolute;
     right: -25px;
-    top: 50px; /* Adjust the distance from the top */
-    background-color: #fff; /* Set the background color */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+    top: 50px; 
+    background-color: #fff; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
     border-radius: 5px;
     padding: 10px;
     display: none;
@@ -58,11 +96,12 @@ ol{
 
 
 #infoPanel{
+  overflow-y: scroll;
+
     width: 40vw;
     height: 90vh;
     background: rgb(189, 189, 189);
     border-radius: 20px;
-    //shadow
     box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
     display: flex;
     justify-content: center;
@@ -74,4 +113,25 @@ ol{
     background-size: cover; 
     background-position: center; 
     
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(251, 251, 251); 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #767676; 
 }

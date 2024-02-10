@@ -23,11 +23,21 @@
 
 <div id="page">
     <div id="infoPanel">
-            <ol>
-                <li  *ngFor="let item of items">
-                    {{item.name}} <img [src]="item.image" alt="item.name" width="160" height="90"> {{item.price}} <br>
-    
+        <ol>
+                <li *ngFor="let item of items; let i = index" class="item-list">
+                
+                <div class="item-name">{{i + 1}}. {{item.name}}</div>
+                <img [src]="item.image" alt="{{item.name}}" width="160" height="90">
+                {{item.price}} <br>
+                <div style="display:flex; flex-direction:row; justify-content:center; align-items:center;margin-left:1vw">
+                    <svg id="removeIcon" (click)="removeItem(i)" xmlns="http://www.w3.org/2000/svg" width="46" height="46" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+                        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
+                    </svg>
+                    <p class="hide-text">Remove item</p>
+
+                </div>
                 </li>
+          
     
                 <hr style="color: #ffffff; background-color: #ffffff; height: 2px; margin-right:10px">
                 <div id="total">
