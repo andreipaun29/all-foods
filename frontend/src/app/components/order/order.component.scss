@@ -1,0 +1,77 @@
+ol{
+    // border: white 1px solid;
+    // padding: 10px;
+    // box-sizing: border-box;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+}
+
+
+#infoPanel li >*{
+    margin-right: 10px;
+}
+
+.dropdown {
+    position: absolute;
+    right: -25px;
+    top: 50px; /* Adjust the distance from the top */
+    background-color: #fff; /* Set the background color */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+    border-radius: 5px;
+    padding: 10px;
+    display: none;
+    z-index: 999999;
+  }
+  
+  .user-container:hover .dropdown {
+    display: block;
+    z-index: 999999;
+  }
+
+#page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-direction: column;
+    height: 110vh;
+
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('../../../assets/home_bg.png');
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);
+    background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+
+  color: #f2f2f2;
+
+}
+
+
+
+#header{
+    background: #f2f2f2;
+    width: 100%;
+
+}
+
+
+#infoPanel{
+    width: 40vw;
+    height: 90vh;
+    background: rgb(189, 189, 189);
+    border-radius: 20px;
+    //shadow
+    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
+    display: flex;
+    justify-content: center;
+    padding-top: 10vh;
+
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('../../../assets/account_menu.jpg');
+    background-repeat: no-repeat; 
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);
+    background-size: cover; 
+    background-position: center; 
+    
+}

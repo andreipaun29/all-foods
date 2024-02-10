@@ -20,6 +20,9 @@ export class HomeComponent implements OnInit {
         this.items = itemService.getItems();
     }
 
+
+
+
     ngOnInit(){
         this.location = localStorage.getItem('location') ?? '';
 
@@ -36,11 +39,6 @@ export class HomeComponent implements OnInit {
             }
         });
         }
-
-            
-        
-
-        
     }
     
     selectedMeat: string = 'all';
@@ -73,6 +71,10 @@ export class HomeComponent implements OnInit {
         this.router.navigate(['account/' + this.currentId]);
     }
 
+
+    goToOrder() {
+        this.router.navigate(['order/' + this.currentId]);
+    }
 
 
 }

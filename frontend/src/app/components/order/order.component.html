@@ -1,1 +1,45 @@
-<p>order works!</p>
+<div id="header" style="display: flex; justify-content: space-around; align-items: center; gap: 50vw; position:fixed">
+
+    <h1 id="opt">All Foods - Order</h1>
+    <div id="user" style="display: flex; align-items: center; gap: 20px;">
+
+      
+        <h1 >Welcome {{currentUser}}</h1>
+        <div class="user-container" (mouseenter)="showDropdown = true" (mouseleave)="showDropdown = false">
+        <img id="user" src="../../../assets/profile.jpg" alt="user" style="width: 50px; height: 50px; border-radius: 50%;">
+        
+            <div class="dropdown" *ngIf="showDropdown">
+                <ul>
+                <li><a (click)="account()">Account</a></li>
+                <li><a (click)="logout()">Logout</a></li>
+                <li><a (click)="home()">Home</a></li>
+                </ul>
+            </div>
+        </div>        
+    </div>
+  
+</div>
+
+
+<div id="page">
+    <div id="infoPanel">
+            <ol>
+                <li  *ngFor="let item of items">
+                    {{item.name}} <img [src]="item.image" alt="item.name" width="160" height="90"> {{item.price}} <br>
+    
+                </li>
+    
+                <hr style="color: #ffffff; background-color: #ffffff; height: 2px; margin-right:10px">
+                <div id="total">
+                    <h2 style="color:white">Total: {{total}}</h2>
+                    <h3> Delivering to:{{location}}</h3>
+                </div>
+
+                <a  class="btn btn-primary">Order</a>
+
+            </ol>
+
+
+    </div>
+
+</div>
