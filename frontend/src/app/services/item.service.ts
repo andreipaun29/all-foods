@@ -42,7 +42,7 @@ export class ItemService {
             id:4,
             name: 'Beef Burger',
             price: 7.99,
-            description: 'A hearty classic burger with fries',
+            description: 'A hearty classic burger with fries and sauce',
             meat: 'beef',
             image: '../../assets/beef_burger.png'
         },

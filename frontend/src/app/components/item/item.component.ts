@@ -13,6 +13,14 @@ export class ItemComponent {
 
     constructor(private itemService: ItemService, private elementRef: ElementRef) {}
 
+    canOrder: boolean = false;
+    ngOnInit(): void {
+        if(localStorage.getItem('location')){
+            this.canOrder = true;
+        }
+    }
+
+
     quantity: number = 1;
 
     quantityMinus() {

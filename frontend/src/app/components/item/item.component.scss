@@ -7,6 +7,8 @@
 .card{
     border-radius: 15%;
     margin: 20px;
+    width: 21vw;
+    height:40vh;
 }
 
 
@@ -21,3 +23,14 @@
     color: green;
     cursor: pointer;
   }
+
+
+
+@media only screen and (max-height:768px){
+    .card{
+        border-radius: 15%;
+        margin: 20px;
+        width: 21vw;
+        height:46vh;
+    }
+}

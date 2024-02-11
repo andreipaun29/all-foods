@@ -1,9 +1,12 @@
-<div id="header" style="display: flex; justify-content: space-around; align-items: center; gap: 50vw; position:fixed">
+<div id="header" style="display: flex; justify-content: space-around; align-items: center; gap: 40vw; position:fixed">
 
     <h1 id="opt">All Foods - Order</h1>
     <div id="user" style="display: flex; align-items: center; gap: 20px;">
 
       
+        <h2 style="margin: 0;" (click)="home()">
+            Home
+        </h2>
         <h1 >Welcome {{currentUser}}</h1>
         <div class="user-container" (mouseenter)="showDropdown = true" (mouseleave)="showDropdown = false">
         <img id="user" src="../../../assets/profile.jpg" alt="user" style="width: 50px; height: 50px; border-radius: 50%;">
@@ -12,7 +15,6 @@
                 <ul>
                 <li><a (click)="account()">Account</a></li>
                 <li><a (click)="logout()">Logout</a></li>
-                <li><a (click)="home()">Home</a></li>
                 </ul>
             </div>
         </div>        

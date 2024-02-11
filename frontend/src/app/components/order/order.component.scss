@@ -65,7 +65,7 @@ h3{
 
 .dropdown {
     position: absolute;
-    right: -25px;
+    // right: -25px;
     top: 50px; 
     background-color: #fff; 
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
@@ -126,6 +126,55 @@ h3{
     background-position: center; 
     
 }
+
+ul li:hover{
+  color: green;
+  cursor: pointer;
+  background-color: #bcbcbc;
+
+}
+
+
+h2{
+  color: #464646;
+  border: 1px solid gray;
+  border-radius: 10px;
+}
+
+h2:hover{
+  color: #f2f2f2;
+  background-color: #7f7f7f;
+  cursor: pointer;
+}
+
+
+
+
+
+@media only screen and (max-height: 768px){
+  .dropdown {
+    position: absolute;
+    right: 0px;
+    top: 50px; 
+    background-color: #fff; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    border-radius: 5px;
+    padding: 10px;
+    display: none;
+    z-index: 999999;
+  }
+  
+  .user-container:hover .dropdown {
+    display: block;
+    z-index: 999999;
+  }
+
+}
+
+
+
+
+
 
 ::-webkit-scrollbar {
   width: 10px;

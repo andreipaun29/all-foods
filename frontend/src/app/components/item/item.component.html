@@ -1,11 +1,11 @@
-<div class="card" style="width: 21vw; height:40vh">
+<div class="card">
   <img class="card-img-top item-image" src="{{ item.image }}" alt="img">
   <div class="card-body">
     <h5 class="card-title">{{ item.name }}</h5>
     <p class="card-text">{{ item.description }}</p>
     <div style="display: flex; align-items:center; gap:20px">
       <div style="display: flex; flex-direction:column; justify-content:center; align-items:center">
-        <a (click)="addToCart()" class="btn btn-primary">Add {{quantity}}</a>
+        <button [disabled]="!canOrder" (click)="addToCart()" class="btn btn-primary">Add {{quantity}}</button>
 
         <div style="display: flex; gap:20px">
           <svg (click)="quantityPlus()" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16">
