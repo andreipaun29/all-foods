@@ -28,12 +28,10 @@ export class OrderComponent {
 
   ngOnInit(): void {
 
-    //check if there are any items in the order
     if(this.items.length == 0){
       this.isOrder = false;
     }
 
-    // check the length of items in local storage order
     let orderLoc = JSON.parse(localStorage.getItem('order') || '{}');
     if(orderLoc.items.length > 0){
       this.isOrder = true;
@@ -46,12 +44,11 @@ export class OrderComponent {
       let total = 0;
       let location = '';
 
-      console.log('Order received in OrderComponent:', order);
+      // console.log('Order received in OrderComponent:', order);
         total = order.total;
   
       if(location ){
-        console.log('Location:', location);
-        //get the element in the html with id="location" and set its innerHTML to the location
+        // console.log('Location:', location);
         const locationElement = document.getElementById("location");
         if (locationElement) {
           locationElement.innerHTML = location;
@@ -62,7 +59,7 @@ export class OrderComponent {
     });
     
     const order = JSON.parse(localStorage.getItem('order') || '{}');
-    console.log('Orders:', order);
+    // console.log('Orders:', order);
     
 
 
@@ -70,13 +67,11 @@ export class OrderComponent {
       
     
     
-    console.log('Items:', this.items);
+    // console.log('Items:', this.items);
     
-    // Calculate the total
     for (let i = 0; i < this.items.length; i++) {
       this.total += this.items[i].price;
     }
-    //round the total to 2 decimal places
     this.total = Math.round(this.total * 100) / 100;
 
      
@@ -100,25 +95,19 @@ export class OrderComponent {
 
      
       localStorage.setItem('modified', 'true');
-      // Remove the item at the specified index
       this.items.splice(index, 1);
 
-       //check if there are any items in the order
     if(this.items.length == 0){
       this.isOrder = false;
-      //clear the order from local storage
       
     }
 
-      // Calculate the total
       this.total = 0;
       for (let i = 0; i < this.items.length; i++) {
         this.total += this.items[i].price;
       }
-      //round the total to 2 decimal places
       this.total = Math.round(this.total * 100) / 100;
      
-      //modify the order in local storage with the new items and total
       let order = JSON.parse(localStorage.getItem('order') || '{}');
       order.items = this.items;
       order.total = this.total;

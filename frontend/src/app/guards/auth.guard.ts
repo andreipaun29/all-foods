@@ -15,8 +15,7 @@ export class AuthGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     
-      // if we are on the /home page, only check if the token exists in local storage.
-      // otherwise, if we are on the /account/id page, check if the user id in the url matches the user id in local storage.
+
       if (state.url === '/home') {
         if (localStorage.getItem('token')) {
           return true;
@@ -32,12 +31,10 @@ export class AuthGuard implements CanActivate {
         if (userId === next.params['id']) {
           return true;
         }
-        // stay on the same page if on account
         if (state.url.startsWith('/account')) {
           window.location.href = '/account/' + localStorage.getItem('userId');
           return false;
         }
-        //stay on the same page if on order
         if (state.url.startsWith('/order')) {
           window.location.href = '/order/' + localStorage.getItem('userId');
           return false;

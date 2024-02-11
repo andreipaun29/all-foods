@@ -102,7 +102,6 @@ export class ItemService {
 
     addToCart(item: Item, quantity: number) {
 
-        //check to see if an order already exists in local storage. if it does , only add the item to the order
         if (localStorage.getItem('order')) {
             let order: Order = JSON.parse(localStorage.getItem('order') || '{}');
             for (let i=0; i<quantity; i++){

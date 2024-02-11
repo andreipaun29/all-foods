@@ -42,13 +42,13 @@ export class RegisterComponent implements  OnInit {
       this.userService.setCurrentUserEmail(email);
       this.userService.setCurrentUserPassword(password);
 
-      localStorage.setItem('userId', String(user.id)); // Convert userId to string
+      localStorage.setItem('userId', String(user.id));
       localStorage.setItem('firstName', firstName ?? '');
       localStorage.setItem('lastName', lastName ?? '');
       localStorage.setItem('email', email);
       localStorage.setItem('password', password);
 
-      localStorage.setItem('token', String(user.id)); // Convert userId to string
+      localStorage.setItem('token', String(user.id));
 
 
       this.router.navigate(['home']);

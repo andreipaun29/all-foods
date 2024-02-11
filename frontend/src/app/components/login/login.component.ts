@@ -21,7 +21,6 @@ export class LoginComponent implements OnInit {
 
 
    ngOnInit(): void {
-       // clear local storage
         localStorage.clear();
    }
 
@@ -54,14 +53,14 @@ export class LoginComponent implements OnInit {
       this.userService.setCurrentUserEmail(email);
       this.userService.setCurrentUserPassword(password);
 
-      localStorage.setItem('userId', String(userId)); // Convert userId to string
+      localStorage.setItem('userId', String(userId));
       localStorage.setItem('firstName', firstName ?? '');
       localStorage.setItem('lastName', lastName ?? '');
       localStorage.setItem('email', email);
       localStorage.setItem('password', password);
       localStorage.setItem('location', '');
 
-      localStorage.setItem('token', String(userId)); // Convert userId to string
+      localStorage.setItem('token', String(userId));
 
 
       this.router.navigate(['home']);
@@ -77,12 +76,11 @@ export class LoginComponent implements OnInit {
 
 
   sendRegister() {
-    // take the user to the register page
     this.router.navigate(['register']);
   }
 
   contact() {
-    console.log(this.userService.currentUserFirstName);
+    // console.log(this.userService.currentUserFirstName);
     
   }
 
