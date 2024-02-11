@@ -2,6 +2,7 @@
 
 Setup:
 
+    npm i
     npm i bootstrap
     npm i bootswatch
 
@@ -13,5 +14,8 @@ Setup:
 ![image](https://github.com/andreipaun29/all-foods/assets/103249058/1bcdde0a-ac86-418a-a1ac-253a736083bd)
 
 
-To run the project:  npm run start
+    To run the project:  npm run start
 
+
+Inter google font was used for the majority of text
+https://fonts.google.com/specimen/Inter
