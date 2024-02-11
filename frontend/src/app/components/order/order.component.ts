@@ -24,8 +24,21 @@ export class OrderComponent {
   currentId: string = localStorage.getItem('userId') ?? '';
   total: number =  0;
   showDropdown: boolean = false;
+  isOrder: boolean = false;
 
   ngOnInit(): void {
+
+    //check if there are any items in the order
+    if(this.items.length == 0){
+      this.isOrder = false;
+    }
+
+    // check the length of items in local storage order
+    let orderLoc = JSON.parse(localStorage.getItem('order') || '{}');
+    if(orderLoc.items.length > 0){
+      this.isOrder = true;
+    }
+
 
 
     this.shareService.getOrder().subscribe((order: Order) => {
@@ -84,9 +97,19 @@ export class OrderComponent {
     }
 
     removeItem(index: number): void {
+
+     
       localStorage.setItem('modified', 'true');
       // Remove the item at the specified index
       this.items.splice(index, 1);
+
+       //check if there are any items in the order
+    if(this.items.length == 0){
+      this.isOrder = false;
+      //clear the order from local storage
+      
+    }
+
       // Calculate the total
       this.total = 0;
       for (let i = 0; i < this.items.length; i++) {

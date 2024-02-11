@@ -3,6 +3,16 @@
     font-family: 'Inter', sans-serif !important;
 }
 
+
+h1{
+  margin: 0;
+}
+
+
+#header{
+  gap: 43vw;
+}
+
 #page{
     display: flex;
     justify-content: center;
@@ -93,6 +103,11 @@ select {
 }
 
 
+#orderCart:hover{
+  color: green;
+}
+
+
 
 #infoContainer{
   display: flex;
@@ -154,6 +169,46 @@ select {
 .user-container:hover .dropdown {
   display: block;
   z-index: 999999;
+}
+
+#user > div:nth-child(1) > h2{
+  font-weight: bold;
+}
+
+#user > div:nth-child(1) > h2:hover{
+  color: green !important;
+  cursor: pointer;
+
+}
+
+
+ul li:hover{
+  color: green;
+  cursor: pointer;
+  background-color: #bcbcbc;
+
+}
+
+@media only screen and (max-height:768px) {
+  #user h1{
+      width: 20vw;
+
+  }
+
+  #opt{
+      width: 30vw;
+  
+  }
+
+
+  #header{
+    gap: 20vw;
+  }
+
+
+  #page > h4 > svg{
+    margin-left: 32vw !important;
+  }
 }
 
 

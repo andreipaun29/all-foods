@@ -23,7 +23,7 @@
 
 <div id="page">
     <div id="infoPanel">
-        <ol>
+        <ol *ngIf="isOrder; else noOrderBlock">
                 <li *ngFor="let item of items; let i = index" class="item-list">
                 
                 <div class="item-name">{{i + 1}}. {{item.name}}</div>
@@ -49,6 +49,9 @@
 
             </ol>
 
+            <ng-template #noOrderBlock>
+                <h1 style="color:white">No items in cart</h1>
+            </ng-template>
 
     </div>
 

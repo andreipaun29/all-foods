@@ -1,11 +1,15 @@
-<div id="header" style="display: flex; justify-content: space-around; align-items: center; gap: 50vw; position:fixed">
+<div id="header" style="display: flex; justify-content: space-around; align-items: center; position:fixed">
 
     <h1 id="opt">All Foods - Menu</h1>
     <div id="user" style="display: flex; align-items: center; gap: 20px;">
 
-        <svg title="View Your Cart" id="orderCart" (click)="goToOrder()" xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
-            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
-          </svg>
+        <div style=" display:flex; flex-direction:row; justify-content:center;align-items:center; border: 1px solid gray; border-radius:10px">
+            <h2 id="cartTitle" style="color:black; margin:0" (click)="goToOrder(); ">Cart</h2>
+            <svg title="View Your Cart" id="orderCart" (click)="goToOrder()" xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+            </svg>
+
+        </div>
         <h1 >Welcome {{currentUser}}</h1>
         <div class="user-container" (mouseenter)="showDropdown = true" (mouseleave)="showDropdown = false">
         <img id="user" src="../../../assets/profile.jpg" alt="user" style="width: 50px; height: 50px; border-radius: 50%;">
