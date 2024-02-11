@@ -19,9 +19,31 @@
         
          <div id="infoPanel">
              <ul>
-                 <li> First Name: {{firstName}} </li>
-                 <li> Last Name: {{lastName}} </li>
-                 <li> Email: {{email}} </li>
+                 <li> First Name: {{firstName}} 
+                    <svg (click)="editFirstName()" class="editSvg" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                        <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325"/>
+                    </svg>
+
+                    <input *ngIf="toggleEditFirstName" type="text" id="firstName" [(ngModel)]="firstName" placeholder="Enter your first name" />
+                    <button *ngIf="toggleEditFirstName" (click)="submitFirstName()">Submit</button>
+
+                </li>
+                 <li> Last Name: {{lastName}} 
+                    <svg  (click)="editLastName()" class="editSvg"  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                        <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325"/>
+                      </svg>
+
+                        <input *ngIf="toggleEditLastName" type="text" id="lastName" [(ngModel)]="lastName" placeholder="Enter your last name" />
+                        <button *ngIf="toggleEditLastName" (click)="submitLastName()">Submit</button>
+                 </li>
+                 <li> Email: {{email}} 
+                    <svg (click)="editEmail()" class="editSvg"  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                        <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325"/>
+                      </svg>
+
+                    <input *ngIf="toggleEditEmail" type="text" id="email" [(ngModel)]="email" placeholder="Enter your email" />
+                    <button *ngIf="toggleEditEmail" (click)="submitEmail()">Submit</button>
+                 </li>
                  <li> Password: {{password}} 
 
 
@@ -37,6 +59,12 @@
                       </svg>
 
 
+                      <svg (click)="editPassword()" class="editSvg"  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                        <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325"/>
+                      </svg>
+
+                    <input *ngIf="toggleEditPassword" type="text" id="password" [(ngModel)]="password" placeholder="Enter your password" />
+                    <button *ngIf="toggleEditPassword" (click)="submitPassword()">Submit</button>
 
                     </li>
 
@@ -44,9 +72,17 @@
                     <label for="location" *ngIf="!submitted">Enter your location:</label> &nbsp;
                     <input *ngIf="!submitted" type="text" id="location" [(ngModel)]="location" placeholder="Enter your location" />
                     <button (click)="submitLocation()" *ngIf="!submitted">Submit</button>
-                    <div *ngIf="submitted">
-                        <p>Location: {{ location }}</p>
+                    <div *ngIf="submitted" style="display: flex;">
+                        <p style="margin: 0;">Location: {{ location }}</p>
+                        <svg (click)="editLocation()" class="editSvg"  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                            <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325"/>
+                          </svg>
                     </div>
+
+
+                    <input *ngIf="toggleEditLocation" type="text" id="location" [(ngModel)]="location" placeholder="Enter your location" />
+                    <button *ngIf="toggleEditLocation" (click)="submitLocationEdit()">Submit</button>
+                
                 </li>
              </ul>
          </div>

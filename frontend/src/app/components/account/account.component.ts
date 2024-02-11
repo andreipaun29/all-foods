@@ -68,5 +68,54 @@ export class AccountComponent implements OnInit {
     this.shareService.sendData(this.location);
   }
 
+  toggleEditFirstName: boolean = false;
+  editFirstName(){
+
+    this.toggleEditFirstName = !this.toggleEditFirstName;
+
+  }
+  submitFirstName(){
+    this.toggleEditFirstName = !this.toggleEditFirstName;
+    localStorage.setItem('firstName', this.firstName);
+  }
+
+  toggleEditLastName: boolean = false;
+  editLastName(){
+    this.toggleEditLastName = !this.toggleEditLastName;
+  }
+  submitLastName(){
+    this.toggleEditLastName = !this.toggleEditLastName;
+    localStorage.setItem('lastName', this.lastName);
+  }
+
+  toggleEditEmail: boolean = false;
+  editEmail(){
+    this.toggleEditEmail = !this.toggleEditEmail;
+  }
+
+  submitEmail(){
+    this.toggleEditEmail = !this.toggleEditEmail;
+    localStorage.setItem('email', this.email);
+  }
+
+  toggleEditPassword: boolean = false;
+  editPassword(){
+    this.toggleEditPassword = !this.toggleEditPassword;
+  }
+
+  submitPassword(){
+    this.toggleEditPassword = !this.toggleEditPassword;
+    localStorage.setItem('password', this.password);
+  }
+
+  toggleEditLocation: boolean = false;
+  editLocation(){
+    this.toggleEditLocation = !this.toggleEditLocation;
+  }
+
+  submitLocationEdit(){
+    this.toggleEditLocation = !this.toggleEditLocation;
+    localStorage.setItem('location', this.location);
+  }
   
 }
