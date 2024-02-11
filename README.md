@@ -21,3 +21,11 @@ Setup:
 
 Inter google font was used for the majority of text
 https://fonts.google.com/specimen/Inter
+
+
+Live demo
+
+
+https://github.com/andreipaun29/all-foods/assets/103249058/d815ba56-4fa2-4ec6-b76c-70970b2d3cad
+
+
